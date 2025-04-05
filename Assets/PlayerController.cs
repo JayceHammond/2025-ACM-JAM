@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rotation = Vector2.zero;  
+        rotation = Vector2.zero;
     }
 
     // Update is called once per frame
@@ -40,5 +40,13 @@ public class PlayerController : MonoBehaviour
             transform.position -= transform.right * moveSpeed * Time.deltaTime;
         }
 
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Key"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
